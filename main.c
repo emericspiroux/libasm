@@ -6,11 +6,52 @@
 /*   By: larry <larry@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/19 18:58:25 by larry             #+#    #+#             */
-/*   Updated: 2016/01/20 06:08:47 by larry            ###   ########.fr       */
+/*   Updated: 2016/01/21 00:49:59 by larry            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libfts.h"
+
+/* TEST FT_SHORTEST */
+int   launch_shortest(char *str1, char *str2, int result)
+{
+  char  *s1;
+  char  *s2;
+  int  ret;
+
+  s1 = strdup(str1);
+  s2 = strdup(str2);
+  ret = ft_shortest(s1, s2);
+  printf("\n\033[33mft_shortest : %d\033[00m\n", ret);
+  printf("\033[33mwait : %d\033[00m\n", result);
+  if (ret == result)
+    return (1);
+  else
+    return (0);
+}
+
+void  test_shortest(int *flag)
+{
+  int   nb;
+  char  *tab[] = {"123456789", "awdawawd", "awdawawd", "", "bwd", ""};
+  char  *tab2[] = {"123456789", "bwdd", "awdawawbqwdawdawdawd", "", "", "aaw"};
+  int   tab3[] = {9, 4, 8, 0, 0, 0};
+
+  printf("\n\033[33m------- Test FT_SHORTEST -------\033[00m\n");
+  nb = 0;
+  while (nb < 6)
+  {
+    printf("\033[94mTest number %d with \"%s\" and \"%s\" :\033[00m ", (nb + 1), tab[nb], tab2[nb]);
+    if (launch_shortest(tab[nb], tab2[nb], tab3[nb]) == 1)
+      printf("\033[32mOK\033[00m\n");
+    else
+    {
+      (*flag)++;
+      printf("\033[31mERROR\033[00m\n");
+    }
+    nb++;
+  }
+}
 
 /* TEST FT_BZERO */
 int   launch_bzero(char *str, int n)
@@ -722,6 +763,8 @@ int   main(int ac, char **av)
     test_islower(&flag);
     wait_enter();
     test_isupper(&flag);
+    wait_enter();
+    test_shortest(&flag);
   }
   printf("\n\033[33m------- FINISH -------\033[00m\n");
   if (flag == 0)

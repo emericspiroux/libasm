@@ -6,7 +6,7 @@
 /*   By: larry <larry@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/19 19:01:30 by larry             #+#    #+#             */
-/*   Updated: 2016/01/20 05:01:50 by larry            ###   ########.fr       */
+/*   Updated: 2016/01/21 00:48:52 by larry            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,6 @@ void	ft_cat(int fd);
 
 int		ft_islower(int c);
 int		ft_isupper(int c);
+int		ft_shortest(char *s1, char *s2);
 
 #endif

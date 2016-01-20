@@ -1,31 +1,42 @@
 ; **************************************************************************** ;
 ;                                                                              ;
 ;                                                         :::      ::::::::    ;
-;    ft_strcmp.s                                        :+:      :+:    :+:    ;
+;    ft_shortest.s                                      :+:      :+:    :+:    ;
 ;                                                     +:+ +:+         +:+      ;
-;    By: espiroux <espiroux@student.42.fr>          +#+  +:+       +#+         ;
+;    By: larry <larry@student.42.fr>                +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
-;    Created: 2016/01/20 15:29:51 by espiroux          #+#    #+#              ;
-;    Updated: 2016/01/20 15:48:36 by espiroux         ###   ########.fr        ;
+;    Created: 2016/01/20 18:55:04 by larry             #+#    #+#              ;
+;    Updated: 2016/01/20 19:06:13 by larry            ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
 section .text
-	global _ft_strcmp
+	global _ft_shortest
+	extern _ft_strlen
 
-_ft_strcmp:
-	
-test_str:
-	cmp byte [rdi], rsi
-	jne finish
+_ft_shortest:
 	cmp rdi, 0
-	je endword
+	je error
 	cmp rsi, 0
-	je endword
-	inc rdi
-	loop test_str
+	je error
 
-finish:
-	sub rdi, rsi
-	mov rax, rdi 
+	call _ft_strlen
+	mov rbx, rax
+	mov rdi, rsi
+	call _ft_strlen
+	mov rcx, rax
+
+	cmp rcx, rbx
+	jl return_s2
+
+return_s1:
+	mov rax, rbx
+	ret
+
+return_s2:
+mov rax, rcx
+	ret
+
+error:
+	mov rax, 0
 	ret

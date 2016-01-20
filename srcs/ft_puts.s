@@ -6,7 +6,7 @@
 ;    By: larry <larry@student.42.fr>                +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2016/01/20 00:50:20 by larry             #+#    #+#              ;
-;    Updated: 2016/01/20 05:46:29 by larry            ###   ########.fr        ;
+;    Updated: 2016/01/20 18:16:44 by larry            ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
@@ -32,7 +32,7 @@ msg:
 	syscall
 	jc error
 
-back_space:
+return:
 	mov rax, 0x2000004
 	mov rdi, 1
 	lea rsi, [rel nl]

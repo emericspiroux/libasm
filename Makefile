@@ -6,7 +6,7 @@
 #    By: larry <larry@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/19 18:59:31 by larry             #+#    #+#              #
-#    Updated: 2016/01/20 06:06:24 by larry            ###   ########.fr        #
+#    Updated: 2016/01/20 19:05:24 by larry            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME	= libfts.a
 SRC		= 	ft_bzero.s ft_isalpha.s ft_isdigit.s ft_isalnum.s ft_isascii.s \
 			ft_isprint.s ft_toupper.s ft_tolower.s ft_isupper.s ft_islower.s\
 			ft_strlen.s ft_puts.s ft_memset.s ft_memcpy.s ft_strdup.s \
-			ft_strcat.s ft_cat.s
+			ft_strcat.s ft_cat.s ft_strcmp.s ft_shortest.s
 
 NASM	= /usr/local/Cellar/nasm/2.11.08_1/bin/nasm
 
